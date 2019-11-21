@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("../credentials/learning-gcp-dceefcab0a8e.json")
+  credentials = file("../credentials/learning-gcp.json")
 
   project = "learning-gcp-259612"
   region = "us-central1"
