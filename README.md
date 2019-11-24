@@ -8,3 +8,8 @@
 - [x] [Change Infrastructure](https://learn.hashicorp.com/terraform/gcp/change)
 - [x] [Destroy Infrastructure](https://learn.hashicorp.com/terraform/gcp/destroy)
 - [ ] [Resource Dependencies](https://learn.hashicorp.com/terraform/gcp/dependencies)
+- [ ] [Provision](https://learn.hashicorp.com/terraform/gcp/provision)
+- [ ] [Input Variables](https://learn.hashicorp.com/terraform/gcp/variables)
+- [ ] [Output Variables](https://learn.hashicorp.com/terraform/gcp/outputs)
+- [ ] [Modules](https://learn.hashicorp.com/terraform/gcp/modules)
+- [ ] [Remote State Storage](https://learn.hashicorp.com/terraform/gcp/remote)
