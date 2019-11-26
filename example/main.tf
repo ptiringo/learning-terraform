@@ -1,9 +1,9 @@
 provider "google" {
-  credentials = file("../credentials/learning-gcp.json")
+  credentials = file(var.credentials_file)
 
-  project = "learning-gcp-259612"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -12,7 +12,7 @@ resource "google_compute_network" "vpc_network" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
-  machine_type = "f1-micro"
+  machine_type = var.machine_types[var.environment]
   tags         = ["web", "dev"]
 
   provisioner "local-exec" {
