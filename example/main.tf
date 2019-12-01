@@ -6,9 +6,9 @@ provider "google" {
   zone    = var.zone
 }
 
-resource "google_compute_network" "vpc_network" {
-  name = "terraform-network"
-}
+# resource "google_compute_network" "vpc_network" {
+#   name = "terraform-network"
+# }
 
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
@@ -26,7 +26,8 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   network_interface {
-    network = google_compute_network.vpc_network.name
+    network    = module.network.network_name
+    subnetwork = module.network.subnets_names[0]
     access_config {
       nat_ip = google_compute_address.vm_static_ip.address
     }
@@ -35,4 +36,32 @@ resource "google_compute_instance" "vm_instance" {
 
 resource "google_compute_address" "vm_static_ip" {
   name = "terraform-static-ip"
+}
+
+module "network" {
+  source  = "terraform-google-modules/network/google"
+  version = "1.1.0"
+
+  network_name = "terraform-vpc-network"
+  project_id   = var.project
+
+  subnets = [
+    {
+      subnet_name   = "subnet-01"
+      subnet_ip     = var.cidrs[0]
+      subnet_region = var.region
+    },
+    {
+      subnet_name   = "subnet-02"
+      subnet_ip     = var.cidrs[1]
+      subnet_region = var.region
+
+      subnet_private_access = "true"
+    },
+  ]
+
+  secondary_ranges = {
+    subnet-01 = []
+    subnet-02 = []
+  }
 }
