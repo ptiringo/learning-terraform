@@ -1,3 +1,13 @@
+terraform {
+  backend "remote" {
+    organization = "ptiringo-learning-terraform"
+
+    workspaces {
+      name = "Example-Workspace"
+    }
+  }
+}
+
 provider "google" {
   credentials = file(var.credentials_file)
   version     = "2.20.0"

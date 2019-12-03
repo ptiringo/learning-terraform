@@ -12,4 +12,4 @@
 - [x] [Input Variables](https://learn.hashicorp.com/terraform/gcp/variables)
 - [x] [Output Variables](https://learn.hashicorp.com/terraform/gcp/outputs)
 - [x] [Modules](https://learn.hashicorp.com/terraform/gcp/modules)
-- [ ] [Remote State Storage](https://learn.hashicorp.com/terraform/gcp/remote)
+- [x] [Remote State Storage](https://learn.hashicorp.com/terraform/gcp/remote)
